@@ -4,6 +4,55 @@
 
 @layer base {
   body {
-    @apply bg-slate-950 text-slate-100 antialiased font-sans;
+    @apply bg-parchment-100 text-slate-800 antialiased font-sans selection:bg-amber-200 selection:text-amber-900;
   }
+}
+
+/* Custom Vintage Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F4ECE1;
+}
+::-webkit-scrollbar-thumb {
+  background: #D9C5AA;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #C7AC87;
+}
+
+/* Retro Paper Texture & Stamp Utilities */
+.parchment-bg {
+  background-color: #FAF6F0;
+  background-image: radial-gradient(#EADCC9 0.75px, transparent 0.75px), radial-gradient(#EADCC9 0.75px, #FAF6F0 0.75px);
+  background-size: 30px 30px;
+  background-position: 0 0, 15px 15px;
+}
+
+.polaroid-card {
+  @apply bg-white p-3 rounded-lg border border-parchment-300 shadow-polaroid transition-all duration-300 hover:-translate-y-1 hover:shadow-xl;
+}
+
+.stamp-badge {
+  @apply inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-semibold tracking-wider uppercase border border-dashed border-amber-700/40 bg-amber-50/80 text-amber-900 rounded-sm;
+}
+
+.journal-tape {
+  position: relative;
+}
+.journal-tape::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-2deg);
+  width: 70px;
+  height: 20px;
+  background: rgba(244, 236, 225, 0.75);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  backdrop-filter: blur(2px);
+  z-index: 10;
 }
